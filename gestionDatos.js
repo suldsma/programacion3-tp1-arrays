@@ -1,135 +1,297 @@
-console.log("=== TRABAJO PRÁCTICO N*1 ARRAYS JS ===\n");
+/*
+===============================================================================
+PROGRAMACIÓN III - 2025 2do cuatrimestre
+TECNICATURA UNIVERSITARIA EN DESARROLLO WEB
+TP 1 JS Arrays - Gestión de Inventario de Plantas
+===============================================================================
 
-// 1. CONFIGURACIÓN INICIAL
-// Declarar un array llamado productos (o libros, turnos, etc.) que contenga al menos 5 objetos JavaScript.
+*/
 
+console.log("🌱 SISTEMA DE GESTIÓN DE INVENTARIO DE PLANTAS 🌱");
+console.log("=" .repeat(60));
+
+/*
+===============================================================================
+1. CONFIGURACIÓN INICIAL
+===============================================================================
+*/
+
+// Array productos con todas las plantas del inventario original
 let productos = [
-    { id: 1, nombre: "JavaScript para Principiantes", precio: 25500, stock: 12 },
-    { id: 2, nombre: "Python: Guía Completa", precio: 37800, stock: 5 },
-    { id: 3, nombre: "Bases de Datos con SQL", precio: 26200, stock: 0 },
-    { id: 4, nombre: "Fundamentos de HTML y CSS", precio: 34500, stock: 20 },
-    { id: 5, nombre: "Algoritmos y Estructuras de Datos", precio: 28900, stock: 8 }
+    {
+        id: 1,
+        nombre: "Pino marítimo",
+        nombre_cientifico: "Pinus pinaster",
+        precio: 5000,
+        stock: 0,
+        origen: "Exótica",
+        altura_maxima: 35,
+        presentacion: "Maceta 1 kg",
+        foto: "./img/pino_maritimo.jpg"
+    },
+    {
+        id: 2,
+        nombre: "Plátano",
+        nombre_cientifico: "Platanus acerifolia",
+        precio: 10000,
+        stock: 0,
+        origen: "Exótica",
+        altura_maxima: 40,
+        presentacion: "Maceta 3 kg",
+        foto: "./img/platano.jpg"
+    },
+    {
+        id: 3,
+        nombre: "Acacia melanoxylon",
+        nombre_cientifico: "Acacia melanoxylon",
+        precio: 7500,
+        stock: 750,
+        origen: "Exótica",
+        altura_maxima: 20,
+        presentacion: "Maceta 1 kg",
+        foto: "./img/acacia_melanoxylon.jpg"
+    },
+    {
+        id: 4,
+        nombre: "Liquidambar",
+        nombre_cientifico: "Liquidambar styraciflua",
+        precio: 15000,
+        stock: 0,
+        origen: "Exótica",
+        altura_maxima: 25,
+        presentacion: "Maceta 2 kg",
+        foto: "./img/liquidambar.jpg"
+    },
+    {
+        id: 5,
+        nombre: "Molle",
+        nombre_cientifico: "Schinus fasciculatus",
+        precio: 5000,
+        stock: 750,
+        origen: "Autóctona",
+        altura_maxima: 15,
+        presentacion: "Maceta 2 kg",
+        foto: "./img/molle.jpg"
+    },
+    {
+        id: 6,
+        nombre: "Azahar de monte",
+        nombre_cientifico: "Aloysia gratissima",
+        precio: 3000,
+        stock: 750,
+        origen: "Autóctona",
+        altura_maxima: 3,
+        presentacion: "Maceta 0,5 kg",
+        foto: "./img/azahar_monte.jpg"
+    },
+    {
+        id: 7,
+        nombre: "Zampa",
+        nombre_cientifico: "Atriplex lampa",
+        precio: 3000,
+        stock: 0,
+        origen: "Autóctona",
+        altura_maxima: 1,
+        presentacion: "Maceta 0,5 kg",
+        foto: "./img/zampa.jpg"
+    },
+    {
+        id: 8,
+        nombre: "Calden",
+        nombre_cientifico: "Prosopis caldenia",
+        precio: 10000,
+        stock: 5000,
+        origen: "Autóctona",
+        altura_maxima: 20,
+        presentacion: "Maceta 2 kg",
+        foto: "./img/calden.jpg"
+    },
+    {
+        id: 9,
+        nombre: "Espinillo",
+        nombre_cientifico: "Acacia caven",
+        precio: 10000,
+        stock: 1500,
+        origen: "Autóctona",
+        altura_maxima: 15,
+        presentacion: "Maceta 2 kg",
+        foto: "./img/espinillo.jpg"
+    },
+    {
+        id: 10,
+        nombre: "Ciprés arizónica",
+        nombre_cientifico: "Cupressus arizonica",
+        precio: 5000,
+        stock: 1750,
+        origen: "Exótica",
+        altura_maxima: 25,
+        presentacion: "Maceta 1 kg",
+        foto: "./img/cipres_arizonica.jpg"
+    }
 ];
 
-console.log("Array inicial de productos:");
-console.log(productos);
-console.log("\n");
+console.log("\n📋 INVENTARIO INICIAL:");
+console.table(productos);
 
-// 2. OPERACIONES BÁSICAS Y ACCESO
+/*
+===============================================================================
+2. OPERACIONES BÁSICAS Y ACCESO
+===============================================================================
+*/
 
-console.log("=== OPERACIONES BÁSICAS Y ACCESO ===");
+console.log("\n 2. OPERACIONES BÁSICAS Y ACCESO");
+console.log("-".repeat(40));
 
-// 1. Imprimir la longitud total del array productos
-console.log(`Longitud total del array: ${productos.length}`);
+// 2.1 - Imprimir la longitud total del array productos
+console.log(`Longitud total del array productos: ${productos.length}`);
 
-// 2. Acceder e imprimir por consola el nombre del segundo y cuarto elemento del array utilizando su índice.
-console.log(`Segundo elemento (índice 1): ${productos[1].nombre}`);
-console.log(`Cuarto elemento (índice 3): ${productos[3].nombre}`);
-console.log("\n");
+// 2.2 - Acceder e imprimir el nombre del segundo y cuarto elemento por índice
+console.log(`🌿 Segundo elemento (índice 1): ${productos[1].nombre}`);
+console.log(`🌿 Cuarto elemento (índice 3): ${productos[3].nombre}`);
 
-// 3. RECORRIDO DEL ARRAY
+/*
+===============================================================================
+3. RECORRIDO DEL ARRAY
+===============================================================================
+*/
 
-console.log("=== RECORRIDO DEL ARRAY ===");
+console.log("\n 3. RECORRIDO DEL ARRAY");
+console.log("-".repeat(40));
 
-// 1. Recorrer el array productos utilizando un bucle for...of e imprimir el nombre y el precio de cada elemento.
-console.log("Recorrido con for...of:");
+// 3.1 - Recorrer con for...of e imprimir nombre y precio
+console.log(" 3.1 - Recorrido con bucle for...of:");
 for (const producto of productos) {
-    console.log(`   ${producto.nombre} - $${producto.precio}`);
+    console.log(`   ${producto.nombre} - $${producto.precio.toLocaleString()}`);
 }
 
-console.log("");
-
-// 2. Recorre el array productos utilizando el método forEach() e imprimir la misma información que en el punto anterior, pero agregando una frase descriptiva (ej. "Producto: [nombre], Precio: [precio]").
-console.log("Recorrido con forEach():");
+// 3.2 - Recorrer con forEach() con frase descriptiva
+console.log("\n 3.2 - Recorrido con método forEach():");
 productos.forEach(producto => {
-    console.log(`   Producto: ${producto.nombre}, Precio: $${producto.precio}`);
+    console.log(`   Producto: ${producto.nombre}, Precio: $${producto.precio.toLocaleString()}`);
 });
 
-console.log("\n");
+/*
+===============================================================================
+4. MANIPULACIÓN DE ARRAYS
+===============================================================================
+*/
 
-// 4. MANIPULACIÓN DE ARRAYS
+console.log("\n  4. MANIPULACIÓN DE ARRAYS");
+console.log("-".repeat(40));
 
-console.log("=== MANIPULACIÓN DE ARRAYS ===");
+// 4.1 - Agregar dos elementos al final con push()
+console.log("➕ 4.1 - Agregando dos elementos con push():");
+productos.push({
+    id: 11,
+    nombre: "Eucalipto blanco",
+    nombre_cientifico: "Eucalyptus viminalis",
+    precio: 3000,
+    stock: 200,
+    origen: "Exótica",
+    altura_maxima: 45,
+    presentacion: "Maceta 1 kg",
+    foto: "./img/eucalipto_blanco.jpg"
+});
 
-// 1. Agregar dos elementos al final del array productos utilizando push().
-console.log("➕ Agregando dos productos al final con push():");
-productos.push(
-    { id: 6, nombre: "Desarrollo Web Full Stack", precio: 12000, stock: 4 },
-    { id: 7, nombre: "Introducción a C++", precio: 16500, stock: 9 }
-);
-console.log(`   Longitud después de push(): ${productos.length}`);
+productos.push({
+    id: 12,
+    nombre: "Eucalipto medicinal",
+    nombre_cientifico: "Eucalyptus cinerea",
+    precio: 3000,
+    stock: 300,
+    origen: "Exótica",
+    altura_maxima: 40,
+    presentacion: "Maceta 1 kg",
+    foto: "./img/eucalipto_medicinal.jpg"
+});
 
-// 2. Eliminar el último elemento del array productos utilizando pop().
-console.log("➖ Eliminando último elemento con pop():");
+console.log(`   ✅ Agregados 2 productos. Nueva longitud: ${productos.length}`);
+
+// 4.2 - Eliminar el último elemento con pop()
+console.log("\n➖ 4.2 - Eliminando último elemento con pop():");
 const eliminado = productos.pop();
-console.log(`   Elemento eliminado: ${eliminado.nombre}`);
-console.log(`   Longitud después de pop(): ${productos.length}`);
+console.log(`   ✅ Eliminado: ${eliminado.nombre} (ID: ${eliminado.id})`);
 
-// 3. Agregar un nuevo elemento al inicio del array productos utilizando unshift().
-console.log("➕ Agregando producto al inicio con unshift():");
-productos.unshift({ id: 8, nombre: "Machine Learning con Python", precio: 15000, stock: 3 });
-console.log(`   Longitud después de unshift(): ${productos.length}`);
+// 4.3 - Agregar elemento al inicio con unshift()
+console.log("\n⬆➕  4.3 - Agregando elemento al inicio con unshift():");
+productos.unshift({
+    id: 13,
+    nombre: "Pino tosquero",
+    nombre_cientifico: "Pinus halepensis",
+    precio: 2500,
+    stock: 500,
+    origen: "Exótica",
+    altura_maxima: 30,
+    presentacion: "Maceta 1 kg",
+    foto: "./img/pino_tosquero.jpg"
+});
+console.log(`   ✅ Elemento agregado al inicio. Nueva longitud: ${productos.length}`);
 
-// 4. Elimina el primer elemento del array productos utilizando shift().
-console.log("➖ Eliminando primer elemento con shift():");
+// 4.4 - Eliminar primer elemento con shift()
+console.log("\n⬇➖  4.4 - Eliminando primer elemento con shift():");
 const primerEliminado = productos.shift();
-console.log(`   Elemento eliminado: ${primerEliminado.nombre}`);
-console.log(`   Longitud después de shift(): ${productos.length}`);
+console.log(`   ✅ Eliminado: ${primerEliminado.nombre} (ID: ${primerEliminado.id})`);
 
-console.log("");
-
-// 5. Crear un nuevo array llamado productosConStock que contenga solo los elementos del array productos donde el stock sea mayor que 0 utilizando filter().)
-console.log("Creando array productosConStock con filter() (stock > 0):");
+// 4.5 - Crear array productosConStock con filter()
+console.log("\n 4.5 - Creando array productosConStock con filter():");
 const productosConStock = productos.filter(producto => producto.stock > 0);
-console.log("   Productos con stock:");
+console.log(`   ✅ Productos con stock disponible: ${productosConStock.length}`);
+console.log("   📁 Lista de productos con stock:");
 productosConStock.forEach(producto => {
-    console.log(`   - ${producto.nombre} (Stock: ${producto.stock})`);
+    console.log(`      • ${producto.nombre}: ${producto.stock} unidades`);
 });
 
-console.log("");
-
-// 6. Crear un nuevo array llamado nombresProductos que contenga solo los nombres de todos los productos en el inventario utilizando map().
-console.log("Creando array nombresProductos con map():");
+// 4.6 - Crear array nombresProductos con map()
+console.log("\n 4.6 - Creando array nombresProductos con map():");
 const nombresProductos = productos.map(producto => producto.nombre);
-console.log("   Lista de nombres:", nombresProductos);
+console.log("   ✅ Nombres de todos los productos:");
+nombresProductos.forEach((nombre, index) => {
+    console.log(`      ${index + 1}. ${nombre}`);
+});
 
-console.log("");
-
-// 7. Encontrar y guardar en una variable el primer producto en productos que tenga un id específico (ej. id:3) utilizando find(). Si no lo encuentra, indicar que no existe.
-console.log("Buscando producto con id: 3 usando find():");
-const productoBuscado = productos.find(producto => producto.id === 3);
-if (productoBuscado) {
-    console.log(`   ✅ Producto encontrado: ${productoBuscado.nombre} - $${productoBuscado.precio}`);
+// 4.7 - Encontrar producto con ID específico usando find()
+console.log("\n 4.7 - Buscando producto con ID: 3 usando find():");
+const productoEncontrado = productos.find(producto => producto.id === 3);
+if (productoEncontrado) {
+    console.log("   ✅ Producto encontrado:");
+    console.log(`      • ID: ${productoEncontrado.id}`);
+    console.log(`      • Nombre: ${productoEncontrado.nombre}`);
+    console.log(`      • Precio: $${productoEncontrado.precio.toLocaleString()}`);
+    console.log(`      • Stock: ${productoEncontrado.stock} unidades`);
 } else {
-    console.log("   ❌ Producto no encontrado");
+    console.log("   ❌ Producto con ID: 3 no existe");
 }
 
-console.log("");
-
-// 8. Crear un nuevo array llamado productosOrdenados que contenga los productos ordenados por precio en orden decreciente. (investigar método sort()).
-console.log("Creando array productosOrdenados por precio (decreciente) con sort():");
+// 4.8 - Crear array productosOrdenados por precio descendente con sort()
+console.log("\n 4.8 - Creando array productosOrdenados por precio (descendente):");
 const productosOrdenados = [...productos].sort((a, b) => b.precio - a.precio);
-console.log("   Productos ordenados por precio (mayor a menor):");
+console.log("   ✅ Productos ordenados por precio (mayor a menor):");
 productosOrdenados.forEach((producto, index) => {
-    console.log(`   ${index + 1}. ${producto.nombre} - $${producto.precio}`);
+    console.log(`      ${(index + 1).toString().padStart(2)}. ${producto.nombre} - $${producto.precio.toLocaleString()}`);
 });
 
-console.log("\n");
+/*
+===============================================================================
+VERIFICACIÓN FINAL
+===============================================================================
+*/
 
-
-// VERIFICACIÓN FINAL
-// Imprimir en consola el array original o creado para verificar las operaciones realizadas.
-
-console.log("=== VERIFICACIÓN FINAL ===");
-console.log("Array productos final:");
+console.log("\n VERIFICACIÓN FINAL - ESTADO ACTUAL DEL ARRAY");
+console.log("=".repeat(60));
+console.log(` Total de productos en inventario: ${productos.length}`);
+console.log(" Array productos después de todas las operaciones:");
 console.table(productos);
 
 console.log("\n RESUMEN DE OPERACIONES REALIZADAS:");
-console.log(`   • Array original: 5 productos`);
-console.log(`   • Después de manipulaciones: ${productos.length} productos`);
-console.log(`   • Productos con stock: ${productosConStock.length} productos`);
-console.log(`   • Total de nombres extraídos: ${nombresProductos.length}`);
-console.log(`   • Producto encontrado por ID: ${productoBuscado ? 'Sí' : 'No'}`);
-console.log(`   • Array ordenado creado: ${productosOrdenados.length} productos`);
+console.log("✅ Longitud inicial y acceso por índice");
+console.log("✅ Recorridos con for...of y forEach()");
+console.log("✅ Agregado de elementos con push()");
+console.log("✅ Eliminación con pop()");
+console.log("✅ Agregado al inicio con unshift()");
+console.log("✅ Eliminación del inicio con shift()");
+console.log("✅ Filtrado de productos con stock con filter()");
+console.log("✅ Extracción de nombres con map()");
+console.log("✅ Búsqueda por ID con find()");
+console.log("✅ Ordenamiento por precio con sort()");
 
-console.log("\n✅ ¡Trabajo Práctico completado exitosamente!");
+console.log("\n🌱 ¡Gestión de inventario completada exitosamente! 🌱");
