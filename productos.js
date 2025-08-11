@@ -16,7 +16,7 @@ const productos = [
         origen: "Exótica",
         altura_maxima: 35,
         presentacion: "Maceta 1 kg",
-        foto: "./img/pino_maritimo.jpg"
+        foto: "./img/pino_maritimo.webp"
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ const productos = [
         origen: "Exótica",
         altura_maxima: 200,
         presentacion: "Maceta 3 kg",
-        foto: "./img/platano.jpg"
+        foto: "./img/platano.webp"
     },
     {
         id: 3,
@@ -38,7 +38,7 @@ const productos = [
         origen: "Exótica",
         altura_maxima: 20,
         presentacion: "Maceta 1 kg",
-        foto: "./img/acacia_melanoxylon.jpg"
+        foto: "./img/acacia_melanoxylon.webp"
     },
     {
         id: 4,
@@ -49,7 +49,7 @@ const productos = [
         origen: "Exótica",
         altura_maxima: 25,
         presentacion: "Maceta 2 kg",
-        foto: "./img/liquidambar.jpg"
+        foto: "./img/liquidambar.webp"
     },
     {
         id: 5,
@@ -60,7 +60,7 @@ const productos = [
         origen: "Autóctona",
         altura_maxima: 15,
         presentacion: "Maceta 2 kg",
-        foto: "./img/molle.jpg"
+        foto: "./img/molle.webp"
     },
     {
         id: 6,
@@ -71,7 +71,7 @@ const productos = [
         origen: "Autóctona",
         altura_maxima: 3,
         presentacion: "Maceta 0,5 kg",
-        foto: "./img/azahar_monte.jpg"
+        foto: "./img/azahar_monte.webp"
     },
     {
         id: 7,
@@ -82,7 +82,7 @@ const productos = [
         origen: "Autóctona",
         altura_maxima: 1,
         presentacion: "Maceta 0,5 kg",
-        foto: "./img/zampa.jpg"
+        foto: "./img/zampa.webp"
     },
     {
         id: 8,
@@ -93,7 +93,7 @@ const productos = [
         origen: "Autóctona",
         altura_maxima: 20,
         presentacion: "Maceta 2 kg",
-        foto: "./img/calden.jpg"
+        foto: "./img/calden.webp"
     },
     {
         id: 9,
@@ -104,7 +104,7 @@ const productos = [
         origen: "Autóctona",
         altura_maxima: 15,
         presentacion: "Maceta 2 kg",
-        foto: "./img/espinillo.jpg"
+        foto: "./img/espinillo.webp"
     },
     {
         id: 10,
@@ -115,7 +115,7 @@ const productos = [
         origen: "Exótica",
         altura_maxima: 25,
         presentacion: "Maceta 1 kg",
-        foto: "./img/cipres_arizonica.jpg"
+        foto: "./img/cipres_arizonica.webp"
     }
 ];
 
