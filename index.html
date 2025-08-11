@@ -3,35 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario de Plantas 🌱</title>
+    <title>🌱 Inventario de Plantas - TP JavaScript Arrays</title>
+    <meta name="description" content="Sistema de gestión de inventario de plantas - UNER Programación III">
+    <meta name="author" content="Grupo [NÚMERO] - UNER">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <h1>🌱 Inventario de Plantas 🌱</h1>
+        <p class="subtitulo">Sistema de Gestión - Programación III UNER</p>
+    </header>
 
-    <h1>🌱 Inventario de Plantas 🌱</h1>
-    <div class="contenedor" id="inventario"></div>
+    <!-- Estadísticas del inventario -->
+    <section class="estadisticas" id="estadisticas">
+        <div class="stat-card">
+            <span class="stat-numero" id="totalProductos">0</span>
+            <span class="stat-label">Productos</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-numero" id="stockTotal">0</span>
+            <span class="stat-label">Unidades</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-numero" id="valorInventario">$0</span>
+            <span class="stat-label">Valor Total</span>
+        </div>
+    </section>
 
-    <!-- Cargar inventario -->
+    <!-- Contenedor principal del inventario -->
+    <main class="contenedor" id="inventario">
+        <!-- Las tarjetas se generan dinámicamente -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 - Programación III - UNER | Trabajo Práctico JavaScript Arrays</p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="./productos.js"></script>
     <script>
-        const contenedor = document.getElementById("inventario");
+        // Función para formatear números
+        const formatearNumero = (numero) => numero.toLocaleString('es-AR');
+        const formatearPrecio = (precio) => `$${precio.toLocaleString('es-AR')}`;
 
-        productos.forEach(producto => {
-            const tarjeta = document.createElement("div");
-            tarjeta.classList.add("tarjeta");
+        // Función para calcular estadísticas
+        function calcularEstadisticas() {
+            const totalProductos = productos.length;
+            const stockTotal = productos.reduce((total, producto) => total + producto.stock, 0);
+            const valorInventario = productos.reduce((total, producto) => total + (producto.precio * producto.stock), 0);
 
-            tarjeta.innerHTML = `
-                <img src="${producto.foto}" alt="${producto.nombre}">
-                <div class="info">
-                    <h3>${producto.nombre}</h3>
-                    <p class="precio">$${producto.precio.toLocaleString()}</p>
-                    <p class="stock">Stock: ${producto.stock} unidades</p>
-                </div>
-            `;
+            document.getElementById('totalProductos').textContent = totalProductos;
+            document.getElementById('stockTotal').textContent = formatearNumero(stockTotal);
+            document.getElementById('valorInventario').textContent = formatearPrecio(valorInventario);
+        }
 
-            contenedor.appendChild(tarjeta);
+        // Función para crear tarjetas de productos
+        function crearTarjetasProductos() {
+            const contenedor = document.getElementById("inventario");
+            
+            productos.forEach((producto, index) => {
+                const tarjeta = document.createElement("div");
+                tarjeta.classList.add("tarjeta");
+                tarjeta.style.animationDelay = `${index * 0.1}s`;
+
+                // Determinar el color del badge según el origen
+                const colorOrigen = producto.origen === "Autóctona" ? "autoctona" : "exotica";
+                
+                // Determinar el estado del stock
+                let estadoStock = "disponible";
+                if (producto.stock < 100) estadoStock = "bajo";
+                if (producto.stock === 0) estadoStock = "agotado";
+
+                tarjeta.innerHTML = `
+                    <div class="imagen-container">
+                        <img src="${producto.foto}" 
+                             alt="${producto.nombre}"
+                             onerror="this.src='./img/placeholder.jpg'; this.classList.add('error-img');">
+                        <div class="badge-origen ${colorOrigen}">${producto.origen}</div>
+                    </div>
+                    <div class="info">
+                        <h3 class="nombre-producto">${producto.nombre}</h3>
+                        <p class="nombre-cientifico">${producto.nombre_cientifico}</p>
+                        <div class="precio-container">
+                            <span class="precio">${formatearPrecio(producto.precio)}</span>
+                        </div>
+                        <div class="detalles">
+                            <div class="stock ${estadoStock}">
+                                <span class="stock-icon">📦</span>
+                                Stock: ${formatearNumero(producto.stock)} unidades
+                            </div>
+                            <div class="altura">
+                                <span class="altura-icon">📏</span>
+                                Altura máx: ${producto.altura_maxima}m
+                            </div>
+                            <div class="presentacion">
+                                <span class="presentacion-icon">🪴</span>
+                                ${producto.presentacion}
+                            </div>
+                        </div>
+                        <div class="id-producto">ID: ${producto.id}</div>
+                    </div>
+                `;
+
+                contenedor.appendChild(tarjeta);
+            });
+        }
+
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("🌱 Cargando inventario de plantas...");
+            
+            // Crear las tarjetas de productos
+            crearTarjetasProductos();
+            
+            // Calcular y mostrar estadísticas
+            calcularEstadisticas();
+            
+            console.log(`✅ Se mostraron ${productos.length} productos en la interfaz web`);
+            console.log("🎉 Inventario web cargado exitosamente");
         });
-    </script>
 
+        // Funciones adicionales para demostrar el uso de métodos de arrays
+        function filtrarPorOrigen(origen) {
+            return productos.filter(producto => producto.origen === origen);
+        }
+
+        function buscarPorNombre(nombre) {
+            return productos.find(producto => 
+                producto.nombre.toLowerCase().includes(nombre.toLowerCase())
+            );
+        }
+
+        function ordenarPorStock(ascendente = true) {
+            return [...productos].sort((a, b) => 
+                ascendente ? a.stock - b.stock : b.stock - a.stock
+            );
+        }
+
+        // Hacer funciones disponibles globalmente para testing
+        window.inventarioFunciones = {
+            filtrarPorOrigen,
+            buscarPorNombre,
+            ordenarPorStock
+        };
+    </script>
 </body>
 </html>
