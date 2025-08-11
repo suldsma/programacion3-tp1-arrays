@@ -1,12 +1,3 @@
-/*
-===============================================================================
-STYLE.CSS - Estilos para Inventario de Plantas
-PROGRAMACIÓN III - 2025 2do cuatrimestre
-TECNICATURA UNIVERSITARIA EN DESARROLLO WEB
-===============================================================================
-*/
-
-/* Reset y configuración base */
 * {
     margin: 0;
     padding: 0;
@@ -21,13 +12,11 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
 header {
     text-align: center;
     padding: 30px 20px;
-    /* Cambios para un header más claro */
-    background: rgba(255, 255, 255, 0.5); /* Aumenta la opacidad del color de fondo */
-    backdrop-filter: blur(5px);         /* Reduce el efecto de desenfoque */
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
     margin-bottom: 20px;
 }
 
@@ -40,13 +29,12 @@ h1 {
 }
 
 .subtitulo {
-    color: #388e3c;
+    color: #f7f307;
     font-size: 1.1rem;
     font-weight: 500;
     opacity: 0.8;
 }
 
-/* Estadísticas */
 .estadisticas {
     display: flex;
     justify-content: center;
@@ -84,7 +72,6 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* Grid fijo de 5 columnas - tu configuración original mejorada */
 .contenedor {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -94,7 +81,6 @@ h1 {
     margin: 0 auto;
 }
 
-/* Tarjetas de productos */
 .tarjeta {
     background: white;
     border-radius: 15px;
@@ -111,7 +97,6 @@ h1 {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* Container de imagen con badge */
 .imagen-container {
     position: relative;
     overflow: hidden;
@@ -135,7 +120,6 @@ img {
     justify-content: center;
 }
 
-/* Badge de origen */
 .badge-origen {
     position: absolute;
     top: 10px;
@@ -158,7 +142,6 @@ img {
     color: white;
 }
 
-/* Información del producto */
 .info {
     padding: 20px 15px;
 }
@@ -192,7 +175,6 @@ img {
     background-clip: text;
 }
 
-/* Detalles del producto */
 .detalles {
     text-align: left;
     margin-bottom: 10px;
@@ -211,9 +193,8 @@ img {
     width: 20px;
 }
 
-/* Estados del stock */
 .stock.disponible {
-    color: #2e7d32;
+    color: #60e767;
 }
 
 .stock.bajo {
@@ -226,7 +207,6 @@ img {
     font-weight: bold;
 }
 
-/* ID del producto */
 .id-producto {
     position: absolute;
     top: 10px;
@@ -239,18 +219,16 @@ img {
     font-weight: bold;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 30px;
     margin-top: 40px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    color: #2e7d32;
+    color: #e7f0e8;
     font-size: 0.9rem;
 }
 
-/* Animaciones */
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -273,7 +251,6 @@ footer {
     }
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
     .contenedor {
         grid-template-columns: repeat(4, 1fr);
@@ -364,7 +341,6 @@ footer {
     }
 }
 
-/* Mejoras para accesibilidad */
 @media (prefers-reduced-motion: reduce) {
     .tarjeta,
     h1,
@@ -378,14 +354,13 @@ footer {
     }
 }
 
-/* Mejoras para modo oscuro */
 @media (prefers-color-scheme: dark) {
     body {
         background: linear-gradient(135deg, #2d5016 0%, #1b5e20 100%);
     }
     
     .tarjeta {
-        background: #424242;
+        background: #0e0e0e;
         color: #e0e0e0;
     }
     

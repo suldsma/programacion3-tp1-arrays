@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <h1>🌱 Inventario de Plantas 🌱</h1>
         <p class="subtitulo">Sistema de Gestión - Programación III UNER</p>
     </header>
 
-    <!-- Estadísticas del inventario -->
     <section class="estadisticas" id="estadisticas">
         <div class="stat-card">
             <span class="stat-numero" id="totalProductos">0</span>
@@ -31,24 +29,17 @@
         </div>
     </section>
 
-    <!-- Contenedor principal del inventario -->
-    <main class="contenedor" id="inventario">
-        <!-- Las tarjetas se generan dinámicamente -->
-    </main>
+    <main class="contenedor" id="inventario"></main>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 - Programación III - UNER | Trabajo Práctico JavaScript Arrays</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="./productos.js"></script>
     <script>
-        // Función para formatear números
         const formatearNumero = (numero) => numero.toLocaleString('es-AR');
         const formatearPrecio = (precio) => `$${precio.toLocaleString('es-AR')}`;
 
-        // Función para calcular estadísticas
         function calcularEstadisticas() {
             const totalProductos = productos.length;
             const stockTotal = productos.reduce((total, producto) => total + producto.stock, 0);
@@ -59,7 +50,6 @@
             document.getElementById('valorInventario').textContent = formatearPrecio(valorInventario);
         }
 
-        // Función para crear tarjetas de productos
         function crearTarjetasProductos() {
             const contenedor = document.getElementById("inventario");
             
@@ -68,10 +58,8 @@
                 tarjeta.classList.add("tarjeta");
                 tarjeta.style.animationDelay = `${index * 0.1}s`;
 
-                // Determinar el color del badge según el origen
                 const colorOrigen = producto.origen === "Autóctona" ? "autoctona" : "exotica";
                 
-                // Determinar el estado del stock
                 let estadoStock = "disponible";
                 if (producto.stock < 100) estadoStock = "bajo";
                 if (producto.stock === 0) estadoStock = "agotado";
@@ -111,21 +99,14 @@
             });
         }
 
-        // Inicializar la aplicación
         document.addEventListener('DOMContentLoaded', function() {
             console.log("🌱 Cargando inventario de plantas...");
-            
-            // Crear las tarjetas de productos
             crearTarjetasProductos();
-            
-            // Calcular y mostrar estadísticas
             calcularEstadisticas();
-            
             console.log(`✅ Se mostraron ${productos.length} productos en la interfaz web`);
             console.log("🎉 Inventario web cargado exitosamente");
         });
 
-        // Funciones adicionales para demostrar el uso de métodos de arrays
         function filtrarPorOrigen(origen) {
             return productos.filter(producto => producto.origen === origen);
         }
@@ -142,7 +123,6 @@
             );
         }
 
-        // Hacer funciones disponibles globalmente para testing
         window.inventarioFunciones = {
             filtrarPorOrigen,
             buscarPorNombre,
