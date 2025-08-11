@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #d4fc79, #96e6a1);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #2e7d32;
+}
+
+/* Grid fijo de 5 columnas */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05);
+}
+
+img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 15px;
+}
+
+.precio {
+    font-size: 1.2em;
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.stock {
+    font-size: 0.9em;
+    color: #555;
+}

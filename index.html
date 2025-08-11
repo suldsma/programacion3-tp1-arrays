@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Plantas 🌱</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🌱 Inventario de Plantas 🌱</h1>
+    <div class="contenedor" id="inventario"></div>
+
+    <!-- Cargar inventario -->
+    <script src="./productos.js"></script>
+    <script>
+        const contenedor = document.getElementById("inventario");
+
+        productos.forEach(producto => {
+            const tarjeta = document.createElement("div");
+            tarjeta.classList.add("tarjeta");
+
+            tarjeta.innerHTML = `
+                <img src="${producto.foto}" alt="${producto.nombre}">
+                <div class="info">
+                    <h3>${producto.nombre}</h3>
+                    <p class="precio">$${producto.precio.toLocaleString()}</p>
+                    <p class="stock">Stock: ${producto.stock} unidades</p>
+                </div>
+            `;
+
+            contenedor.appendChild(tarjeta);
+        });
+    </script>
+
+</body>
+</html>
