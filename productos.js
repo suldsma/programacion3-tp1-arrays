@@ -116,6 +116,18 @@ const productos = [
         altura_maxima: 25,
         presentacion: "Maceta 1 kg",
         foto: "./img/cipres_arizonica.jpg"
+    },
+
+    {
+        id: 15,
+        nombre: "Ciprés arizónica",
+        nombre_cientifico: "Cupressus arizonica",
+        precio: 5000,
+        stock: 1750,
+        origen: "Exótica",
+        altura_maxima: 25,
+        presentacion: "Maceta 1 kg",
+        foto: "./img/cipres_arizonica.jpg"
     }
 ];
 

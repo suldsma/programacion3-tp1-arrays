@@ -123,10 +123,18 @@
             );
         }
 
+        function filtrarPorNombres(nombre) {
+            return productos.filter(producto => 
+                producto.nombre.toLowerCase().includes(nombre.toLowerCase()) || 
+                producto.nombre_cientifico.toLowerCase().includes(nombre.toLowerCase())
+            );
+        }
+
         window.inventarioFunciones = {
             filtrarPorOrigen,
             buscarPorNombre,
-            ordenarPorStock
+            ordenarPorStock,
+            filtrarPorNombres
         };
     </script>
 </body>
