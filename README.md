@@ -19,6 +19,7 @@ style.css: Hoja de estilos CSS que proporciona el formato y diseño a la página
 
 ---
 👥 Integrantes del Grupo "A"
+
 Hugo Leonel García
 
 José Benjamín Fibiger
