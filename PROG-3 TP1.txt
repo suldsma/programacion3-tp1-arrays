@@ -1,0 +1,13 @@
+Integrantes del Grupo "A":
+
+* José Benjamín Fibiger
+
+* Rita María Victoria Lobos
+
+* Susana Ledesma
+
+* Hugo Leonel García
+
+Link de acceso a repositorio PÚBLICO:
+
+https://github.com/suldsma/programacion3-tp1-arrays.git
