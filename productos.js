@@ -1,11 +1,3 @@
-/*
-===============================================================================
-PRODUCTOS.JS - Array de datos para Inventario de Plantas
-PROGRAMACIÓN III - 2025 2do cuatrimestre
-TECNICATURA UNIVERSITARIA EN DESARROLLO WEB
-===============================================================================
-*/
-
 const productos = [
     {
         id: 1,
