@@ -29,6 +29,14 @@
         </div>
     </section>
 
+    <section class="filtros" id="filtros">
+        
+    </section>
+
+    <section class="filtros" id="desplegar-filtros">
+
+    </section>
+
     <main class="contenedor" id="inventario"></main>
 
     <footer>
@@ -37,6 +45,9 @@
 
     <script src="./productos.js"></script>
     <script>
+        let productos2 = productos
+        //Para ordenar por stock u otro
+        let orden = true
         const formatearNumero = (numero) => numero.toLocaleString('es-AR');
         const formatearPrecio = (precio) => `$${precio.toLocaleString('es-AR')}`;
 
@@ -50,10 +61,155 @@
             document.getElementById('valorInventario').textContent = formatearPrecio(valorInventario);
         }
 
+        function implementarFiltros() {
+            const contenedor = document.getElementById("filtros");
+        
+            const filtros = document.createElement("div");
+
+            filtros.classList.add("nombre-producto");
+            filtros.textContent = "DESPLEGAR FILTROS";
+            filtros.id = "div-filtros"
+            const boton = document.createElement("button");
+            boton.textContent = "DESPLEGAR FILTROS";
+            boton.id = "botonfiltros";
+            filtros.appendChild(boton);
+            
+            contenedor.append(filtros);
+
+            boton.addEventListener("click", function(){
+                const contenedor2 = document.getElementById("desplegar-filtros");
+                contenedor2.textContent = "";
+                productos2 = productos;
+                crearTarjetasProductos();
+                //Botón filtro nombre
+                const desplegarfiltros = document.createElement("div");
+                desplegarfiltros.classList.add("nombre-producto");
+                desplegarfiltros.textContent = "FILTRAR POR COINCIDENCIA EN NOMBRES";
+                desplegarfiltros.id = "filtro-nombre"
+                const input_name = document.createElement("input");
+                input_name.id = "input-filtro-nombre"
+                desplegarfiltros.appendChild(input_name);
+                const boton2 = document.createElement("button");
+                boton2.textContent = "FILTRAR";
+                boton2.id = "FILTRO-NOMBRE";
+                desplegarfiltros.appendChild(boton2);
+                //Se agrega
+                contenedor2.append(desplegarfiltros);
+                
+                //Botón filtro origen
+                const desplegarfiltros2 = document.createElement("div");
+                desplegarfiltros2.classList.add("nombre-producto");
+                desplegarfiltros2.textContent = "FILTRAR POR ORIGEN";
+                desplegarfiltros2.id = "filtro-origen"
+
+                const input_origen = document.createElement("select");
+                input_origen.name = "Select";
+                input_origen.id = "input-filtro-origen";
+
+                const opcion_exotica = document.createElement("option");
+                opcion_exotica.value = "Exótica";
+                opcion_exotica.text = "EXOTICA";
+                input_origen.appendChild(opcion_exotica);
+
+                const opcion_autoctona = document.createElement("option");
+                opcion_autoctona.value = "Autóctona";
+                opcion_autoctona.text = "AUTOCTONA";
+                input_origen.appendChild(opcion_autoctona);
+
+                desplegarfiltros2.appendChild(input_origen);
+                const boton3 = document.createElement("button");
+                boton3.textContent = "FILTRAR";
+                boton3.id = "FILTRO-origen";
+                desplegarfiltros2.appendChild(boton3);
+                //Se agrega
+                contenedor2.append(desplegarfiltros2);
+
+                //Botón ordenar por stock
+                const desplegarfiltros3 = document.createElement("div");
+                desplegarfiltros3.classList.add("nombre-producto");
+                desplegarfiltros3.textContent = "ORDENAR POR STOCK";
+                desplegarfiltros3.id = "orden-stock";
+                const boton4 = document.createElement("button");
+                boton4.textContent = "ORDENAR POR STOCK";
+                boton4.id = "orden-stock";
+                desplegarfiltros3.appendChild(boton4);
+                //Se agrega
+                contenedor2.append(desplegarfiltros3);
+
+                //Botón ordenar por stock
+                const desplegarfiltros4 = document.createElement("div");
+                desplegarfiltros4.classList.add("nombre-producto");
+                desplegarfiltros4.textContent = "ORDENAR POR PRECIO";
+                desplegarfiltros4.id = "orden-precio";
+                const boton5 = document.createElement("button");
+                boton5.textContent = "ORDENAR POR PRECIO";
+                boton5.id = "orden-precio";
+                desplegarfiltros4.appendChild(boton5);
+                //Se agrega
+                contenedor2.append(desplegarfiltros4);
+
+                boton2.addEventListener("click", function(){
+                    const filtro_nombre = document.getElementById("input-filtro-nombre");
+                    const valor_filtro_nombre = filtro_nombre.value
+                    const contenedor2 = document.getElementById("desplegar-filtros");
+                
+                    const desplegarfiltros = document.createElement("div");
+                
+                    desplegarfiltros.classList.add("nombre-producto");
+                    desplegarfiltros.textContent = valor_filtro_nombre;
+
+                    filtrarPorNombres(valor_filtro_nombre);
+
+                    crearTarjetasProductos();
+
+                    filtro_nombre.value ="";
+                    contenedor2.append(desplegarfiltros);
+
+            })
+
+            boton3.addEventListener("click", function(){
+                    const filtro_origen = document.getElementById("input-filtro-origen");
+                    const valor_filtro_origen = filtro_origen.value
+                    const contenedor2 = document.getElementById("desplegar-filtros");
+                
+                    const desplegarfiltros2 = document.createElement("div");
+                
+                    desplegarfiltros2.classList.add("nombre-producto");
+                    desplegarfiltros2.textContent = valor_filtro_origen;
+
+                    filtrarPorOrigen(valor_filtro_origen);
+
+                    crearTarjetasProductos();
+
+                    filtro_origen.value ="";
+                    contenedor2.append(desplegarfiltros2);
+
+            })
+
+            boton4.addEventListener("click", function(){
+                    
+                    ordenarPorStock();
+
+                    crearTarjetasProductos();
+
+            })
+
+            boton5.addEventListener("click", function(){
+                    
+                    ordenarPorPrecio();
+
+                    crearTarjetasProductos();
+
+            })
+
+            }
+            )
+
+        }
         function crearTarjetasProductos() {
             const contenedor = document.getElementById("inventario");
-            
-            productos.forEach((producto, index) => {
+            contenedor.textContent = ""
+            productos2.forEach((producto, index) => {
                 const tarjeta = document.createElement("div");
                 tarjeta.classList.add("tarjeta");
                 tarjeta.style.animationDelay = `${index * 0.1}s`;
@@ -101,6 +257,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             console.log("🌱 Cargando inventario de plantas...");
+            implementarFiltros();
             crearTarjetasProductos();
             calcularEstadisticas();
             console.log(`✅ Se mostraron ${productos.length} productos en la interfaz web`);
@@ -108,7 +265,8 @@
         });
 
         function filtrarPorOrigen(origen) {
-            return productos.filter(producto => producto.origen === origen);
+            productos2 = productos2.filter(producto => producto.origen === origen);
+            return productos2
         }
 
         function buscarPorNombre(nombre) {
@@ -116,18 +274,31 @@
                 producto.nombre.toLowerCase().includes(nombre.toLowerCase())
             );
         }
+        
+        function ordenarPorStock() {
+            productos2 = productos2.sort((a, b) => 
+                orden == true ? a.stock - b.stock : b.stock - a.stock
+                ); 
+            orden = !orden;
+            return productos2;
+                
+        }
 
-        function ordenarPorStock(ascendente = true) {
-            return [...productos].sort((a, b) => 
-                ascendente ? a.stock - b.stock : b.stock - a.stock
-            );
+        function ordenarPorPrecio() {
+            productos2 = productos2.sort((a, b) => 
+                orden == true ? a.precio - b.precio : b.precio - a.precio
+                ); 
+            orden = !orden;
+            return productos2;
+                
         }
 
         function filtrarPorNombres(nombre) {
-            return productos.filter(producto => 
+                productos2 = productos2.filter(producto => 
                 producto.nombre.toLowerCase().includes(nombre.toLowerCase()) || 
                 producto.nombre_cientifico.toLowerCase().includes(nombre.toLowerCase())
             );
+            return productos2
         }
 
         window.inventarioFunciones = {
