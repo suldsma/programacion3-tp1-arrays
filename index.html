@@ -79,7 +79,7 @@
             boton.addEventListener("click", function(){
                 const contenedor2 = document.getElementById("desplegar-filtros");
                 contenedor2.textContent = "";
-                productos2 = productos
+                productos2 = productos;
                 crearTarjetasProductos();
                 //Botón filtro nombre
                 const desplegarfiltros = document.createElement("div");
@@ -209,7 +209,6 @@
         function crearTarjetasProductos() {
             const contenedor = document.getElementById("inventario");
             contenedor.textContent = ""
-            
             productos2.forEach((producto, index) => {
                 const tarjeta = document.createElement("div");
                 tarjeta.classList.add("tarjeta");
